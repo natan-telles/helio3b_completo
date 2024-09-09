@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+    <h3>Home - Interface C.R.U.D.</h3>
+    <br>
+
+    <div id="tabelas">
+        Selecione a tabela a consultar:
+        <select name="" id="select">
+            <option value=""></option>
+            <option value="estagiarios">Estagiarios</option>
+            <option value="empresas">Empresas</option>
+            <option value="clientes">Clientes</option>
+        </select>
+    </div>
+
+    <div class="filtro">
+        Filtro
+        <input type="text" id="filtro">
+    </div>
+
+    <div id="resposta">
+
+    </div>
+
+    <button class="add" id="add" style="display:none;">+</button>
+
+    <input type="file" name="csv" id="file_csv" style="width: 500px;">
+    <button id="csv" class="csv">Enviar CSV</button>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <div id="inserir_cliente">
+        <div class="content">
+            <h2>Adicionar Novo Registro</h2>
+            <form id="form_inserir_cliente">
+                <div class="form-group">
+                    <label for="novoCliente">Novo Cliente</label>
+                    <input type="text" id="novoCliente" name="novoCliente" required>
+                </div>
+                <div class="form-group">
+                    <label for="pedidoCliente">Pedido do Cliente</label>
+                    <textarea id="pedidoCliente" name="pedidoCliente" rows="4" required></textarea>
+                </div>
+                <div class="buttons">
+                    <button type="submit" id="enviar_dados_cliente" class="alterar">Salvar</button>
+                    <button type="button" id="close_inserir_cliente" class="excluir">Fechar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="alterar_cliente">
+        <div class="content">
+            <h2>Alterar Registro</h2>
+            <form id="form_alterar_cliente">
+                <div class="form-group">
+                    <label for="alterar_nome_cliente">Alterar Cliente</label>
+                    <input type="text" id="alterar_nome_cliente" name="alterar_nome_cliente" required>
+                </div>
+                <div class="form-group">
+                    <label for="alterar_pedido_cliente">Alterar pedido do Cliente</label>
+                    <textarea id="alterar_pedido_cliente" name="alterar_pedido_cliente" rows="4" required></textarea>
+                </div>
+                <div class="buttons">
+                    <button type="submit" id="alterar_dados_cliente" class="alterar">Alterar</button>
+                    <button type="button" id="close_alterar_cliente" class="excluir">Fechar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <div id="inserir_estagiario" style="display: none;">
+        <div class="content_estagiario">
+            <h2>Adicionar Novo Registro</h2>
+            <form id="form_inserir_estagiario">
+                <div class="form-group">
+                    <label for="nome_estagiario">Nome Estagiario</label>
+                    <input type="text" id="nome_estagiario" name="nome_estagiario" required>
+                </div>
+                <div class="form-group">
+                    <label for="data_nascimento">Data de Nascimento</label>
+                    <input type="data" id="data_nascimento" name="data_nascimento" required></input>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="number" id="telefone" name="telefone" required></input>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required></data>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_empresa">ID da Empresa</label>
+                    <input type="number" id="id_empresa" name="id_empresa" required></input>
+                </div>
+                <div class="buttons">
+                    <button type="submit" id="enviar_dados_estagiario" class="alterar">Salvar</button>
+                    <button type="button" id="close_inserir_estagiario" class="excluir">Fechar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="alterar_estagiario" style="display: none;">
+        <div class="content_estagiario">
+            <h2>Alterar Registro</h2>
+            <form id="form_alterar_estagiario">
+                <div class="form-group">
+                    <label for="nome_estagiario">Alterar Nome Estagiario</label>
+                    <input type="text" id="alterar_nome_estagiario" name="nome_estagiario" required>
+                </div>
+                <div class="form-group">
+                    <label for="data_nascimento">Alterar Data de Nascimento</label>
+                    <input type="data" id="alterar_data_nascimento" name="data_nascimento" required></input>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Alterar Telefone</label>
+                    <input type="number" id="alterar_telefone" name="telefone" required></input>
+                </div>
+                <div class="form-group">
+                    <label for="email">Alterar E-mail</label>
+                    <input type="email" id="alterar_email" name="email" required></data>
+                </div>
+                <div class="buttons">
+                    <button type="submit" id="alterar_dados_estagiario" class="alterar">Salvar</button>
+                    <button type="button" id="close_alterar_estagiario" class="excluir">Fechar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <div id="inserir_empresa">
+        <div class="content_empresa">
+            <h2>Adicionar Novo Registro</h2>
+            <form id="form_inserir_empresa">
+                <div class="form-group">
+                    <label for="nome_empresa">Nome Empresa</label>
+                    <input type="text" id="nome_empresa" name="nome_empresa" required>
+                </div>
+                <div class="form-group">
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" id="cnpj" name="cnpj" required></input>
+                </div>
+                <div class="form-group">
+                    <label for="id_cliente_empresa">ID_Cliente_Empresa</label>
+                    <input type="number" id="id_cliente_empresa" name="id_cliente_empresa" required></input>
+                </div>
+                <div class="buttons">
+                    <button type="submit" id="enviar_dados_empresa" class="alterar">Salvar</button>
+                    <button type="button" id="close_inserir_empresa" class="excluir">Fechar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="alterar_empresa">
+        <div class="content_empresa">
+            <h2>Alterar Registro</h2>
+            <form id="form_alterar_empresa">
+                <div class="form-group">
+                    <label for="nome_empresa">Alterar Nome Empresa</label>
+                    <input type="text" id="alterar_nome_empresa" name="nome_empresa" required>
+                </div>
+                <div class="form-group">
+                    <label for="cnpj">Alterar CNPJ</label>
+                    <input type="text" id="alterar_cnpj" name="cnpj" required></input>
+                </div>
+                <div class="buttons">
+                    <button type="submit" id="alterar_dados_empresa" class="alterar">Salvar</button>
+                    <button type="button" id="close_alterar_empresa" class="excluir">Fechar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <script>
+        // < obtendo tabela selecionada >
+
+        const divResposta = document.getElementById("resposta")
+        let tabelaAtual = document.getElementById("select").value
+        let botaoAdd = document.getElementById("add")
+        let select = document.getElementById("select")
+        let botaoAlterar = document.getElementById("alterar")
+
+        let filtro = document.getElementById("filtro")
+        filtro.onkeyup = function () {
+            carregarDados()
+        }
+
+        function carregarDados() {
+            const tabelaSelecionada = select.value;
+            const filtroValor = filtro.value;
+
+            // Verifica qual tabela está selecionada e chama a função correspondente
+            switch (tabelaSelecionada) {
+                case 'estagiarios':
+                    carregarEstagiarios(filtroValor);
+                    break;
+                case 'empresas':
+                    carregarEmpresas(filtroValor);
+                    break;
+                case 'clientes':
+                    carregarClientes(filtroValor);
+                    break;
+                default:
+                    console.log("Selecione uma tabela para carregar dados.");
+                    break;
+            }
+        }
+
+        select.onchange = function () {
+            let tabela = document.getElementById("select").value
+            tabelaAtual = tabela
+
+            //console.log("tabela atual: " + tabela)
+
+            if (tabela == "") {
+                divResposta.textContent = ""
+                divResposta.style.display = "none"
+                botaoAdd.style.display = "none"
+            } else if (tabela == "estagiarios") {
+                divResposta.style.display = "block"
+                divResposta.textContent = ""
+                carregarEstagiarios()
+                botaoAdd.style.display = "block"
+            } else if (tabela == "empresas") {
+                divResposta.style.display = "block"
+                divResposta.textContent = ""
+                carregarEmpresas()
+                botaoAdd.style.display = "block"
+            } else if (tabela == "clientes") {
+                divResposta.style.display = "block"
+                divResposta.textContent = ""
+                carregarClientes()
+                botaoAdd.style.display = "block"
+            }
+        }
+    </script>
+
+    <script src="../script/carregarTabelas.js"></script>
+    <script src="../script/inserirDados.js"></script>
+    <script src="../script/criarBotoes.js"></script>
+    <script src="../script/excluirRegistros.js"></script>
+    <script src="../script/adicionarRegistro.js"></script>
+    <script src="../script/alterarRegistro.js"></script>
+    <script src="../script/insertDisplay.js"></script>
+    <script src="../script/carregarCSV.js"></script>
+    <script src="../script/enviarCsv.js"></script>
+    <script src="../script/filtro.js"></script>
+
+</body>
+
+</html>
